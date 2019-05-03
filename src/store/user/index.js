@@ -1,5 +1,6 @@
 import * as firebase from 'firebase/app'
 import 'firebase/auth';
+import router from '@/router';
 
 export default {
   state: {
@@ -8,6 +9,9 @@ export default {
   mutations: {
     setUser (state, payload) {
       state.user = payload
+    },
+    setIsAuthenticated(state, payload) {
+      state.isAuthenticated = payload
     }
   },
   actions: {
@@ -25,11 +29,14 @@ export default {
               photoUrl: user.photoURL
             }
             commit('setUser', newUser)
+            commit('setIsAuthenticated', true)
             this._vm.$toasted.show('Welcome, Citizen')
           }
         )
         .catch(
           error => {
+            commit('setUser', null)
+            commit('setIsAuthenticated', false)
             commit('setLoading', false)
             commit('setError', error)
             console.log(error)
@@ -50,11 +57,14 @@ export default {
               photoUrl: user.photoURL
             }
             commit('setUser', newUser)
+            commit('setIsAuthenticated', true)
             this._vm.$toasted.show('Welcome, Citizen')
           }
         )
         .catch(
           error => {
+            commit('setUser', null)
+            commit('setIsAuthenticated', false)
             commit('setLoading', false)
             commit('setError', error)
             console.log(error)
@@ -75,6 +85,7 @@ export default {
               photoUrl: user.photoURL
             }
             commit('setUser', newUser)
+            commit('setIsAuthenticated', true);
             this._vm.$toasted.show('Welcome, Citizen')
           }
         )
@@ -118,6 +129,7 @@ export default {
         email: payload.email,
         photoUrl: payload.photoURL
       })
+      router.push('/dashboard')
     },
     resetPasswordWithEmail ({ commit }, payload) {
       const { email } = payload
@@ -138,13 +150,27 @@ export default {
       )
     },
     logout ({commit}) {
-      firebase.auth().signOut()
-      commit('setUser', null)
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          commit('setUser', null)
+          commit('setIsAuthenticated', false)
+          router.push('/')
+        })
+        .catch(() => {
+          commit('setUser', null)
+          commit('setIsAuthenticated', false)
+          router.push('/')
+        })
     }
   },
   getters: {
     user (state) {
       return state.user
+    },
+    isAuthenticated(state) {
+      return state.user !== null && state.user !== undefined;
     }
   }
 }

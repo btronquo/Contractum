@@ -26,7 +26,7 @@ new Vue({
   created () {
     fb.auth.onAuthStateChanged((user) => {
       if (user) {
-        this.$store.dispatch('autoSignIn', user)
+        store.dispatch('autoSignIn', user)
       }
     })
   },

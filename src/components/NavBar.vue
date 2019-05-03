@@ -21,7 +21,7 @@
       </v-btn>
 
       <v-btn
-        v-if="userIsAuthenticated"
+        v-if="isAuthenticated"
         flat
         @click="onLogout">
         <v-icon left dark>exit_to_app</v-icon>
@@ -47,7 +47,7 @@
           {icon: 'lock_open', title: 'Sign in', link: '/signin'},
           {icon: '', title: 'Credits', link: '/about'},
         ]
-        if (this.userIsAuthenticated) {
+        if (this.isAuthenticated) {
           menuItems = [
             {icon: 'dashboard', title: 'Dashboard', link: '/dashboard'},
             {icon: 'person', title: 'Profile', link: '/profile'}
@@ -55,14 +55,13 @@
         }
         return menuItems
       },
-      userIsAuthenticated () {
-        return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      isAuthenticated () {
+        return this.$store.getters.isAuthenticated
       }
     },
     methods: {
       onLogout () {
         this.$store.dispatch('logout')
-        this.$router.push('/')
       }
     }
   }
