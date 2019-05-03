@@ -34,33 +34,27 @@
             required
           >
           </v-text-field>
-
-
-          <v-btn round type="submit" :disabled="loading" :loading="loading">
-            Sign up
-            <v-icon right>lock_open</v-icon>
-            <span slot="loader" class="custom-loader">
-              <v-icon light>cached</v-icon>
-              </span>
-          </v-btn>
-
           <div class="text-xs-center">
-            <v-btn round color="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Sign Up with Google
-              <v-icon right dark>lock_open</v-icon>
+            <v-btn type="submit" :disabled="loading" :loading="loading">
+              Sign up
+              <v-icon right>lock_open</v-icon>
               <span slot="loader" class="custom-loader">
+                <v-icon light>cached</v-icon>
+                </span>
+            </v-btn>
+          </div>
+
+          <v-flex>
+                  <p class="text-md-center">OR</p>
+          </v-flex>
+          <div class="text-xs-center">
+            <v-btn color="blue" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Sign Up with Google
+              <v-icon right dark>lock_open</v-icon>
+                <span slot="loader" class="custom-loader">
               <v-icon light>cached</v-icon>
               </span>
             </v-btn>
           </div>
-          <div class="text-xs-center">
-            <v-btn round color="primary" dark :disabled="loading" :loading="loading" @click.prevent="onSigninFacebook">Sign Up with Facebook
-              <v-icon right dark>lock_open</v-icon>
-              <span slot="loader" class="custom-loader">
-              <v-icon light>cached</v-icon>
-              </span>
-            </v-btn>
-          </div>
-
           <p><router-link to="login">Already have an account?</router-link></p>
         </form>
     </v-layout>
@@ -104,9 +98,6 @@ export default {
     },
     onSigninGoogle () {
       this.$store.dispatch('signUserInGoogle')
-    },
-    onSigninFacebook () {
-      this.$store.dispatch('signUserInFacebook')
     }
   }
 }

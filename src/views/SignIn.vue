@@ -34,22 +34,13 @@
           </v-btn>
 
           <div class="text-xs-center">
-                      <v-btn color="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Sign In with Google
-                        <v-icon right dark>lock_open</v-icon>
-                        <span slot="loader" class="custom-loader">
-                        <v-icon light>cached</v-icon>
-                       </span>
-                      </v-btn>
-                    </div>
-                    <div class="text-xs-center">
-                      <v-btn color="primary" dark :disabled="loading" :loading="loading" @click.prevent="onSigninFacebook">Sign In with Facebook
-                        <v-icon right dark>lock_open</v-icon>
-                        <span slot="loader" class="custom-loader">
-                        <v-icon light>cached</v-icon>
-                       </span>
-                      </v-btn>
-                    </div>
-
+            <v-btn color="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Sign In with Google
+              <v-icon right dark>lock_open</v-icon>
+              <span slot="loader" class="custom-loader">
+                <v-icon light>cached</v-icon>
+              </span>
+            </v-btn>
+          </div>
           <p><router-link to="signup">Not a member?</router-link></p>
         </form>
     </v-layout>
@@ -90,9 +81,6 @@ export default {
     },
     onSigninGoogle () {
       this.$store.dispatch('signUserInGoogle')
-    },
-    onSigninFacebook () {
-      this.$store.dispatch('signUserInFacebook')
     },
     onResetPassword () {
       if (this.email === '') {

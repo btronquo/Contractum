@@ -4,8 +4,7 @@
       <h1>My Profile</h1>
       <v-layout row>
       <v-flex xs12 md6>
-        <p>Hey, how are you? </p>
-        <p>You signed with the mail: {{ user.email }}</p>
+        <p>Nickname:</p>
       </v-flex>
       </v-layout>
     </v-container>
