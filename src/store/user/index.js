@@ -97,31 +97,6 @@ export default {
           }
         )
     },
-    signUserInFacebook ({commit}) {
-      commit('setLoading', true)
-      commit('clearError')
-      firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider())
-        .then(
-          user => {
-            commit('setLoading', false)
-            const newUser = {
-              id: user.uid,
-              name: user.displayName,
-              email: user.email,
-              photoUrl: user.photoURL
-            }
-            commit('setUser', newUser)
-            this._vm.$toasted.show('Welcome back, Citizen')
-          }
-        )
-        .catch(
-          error => {
-            commit('setLoading', false)
-            commit('setError', error)
-            console.log(error)
-          }
-        )
-    },
     autoSignIn ({commit}, payload) {
       commit('setUser', {
         id: payload.uid,
