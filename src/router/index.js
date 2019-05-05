@@ -9,12 +9,14 @@ const SignIn = () => import('@/views/SignIn')
 const Dashboard = () => import('@/views/Dashboard')
 const About = () => import('@/views/About')
 const Profile = () => import('@/views/User/Profile')
+const NotFound = () => import('@/views/Core/404')
 import AuthGuard from './auth-guard'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    { path: '*', redirect: '/404' },
     {
       path: '/',
       name: 'home',
@@ -37,14 +39,6 @@ export default new Router({
       component: Profile,
       beforeEnter: AuthGuard
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // },
     {
       path: '/signin',
       name: 'signin',
@@ -54,6 +48,11 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       component: SignUp
+    },
+    {
+      path: '/404',
+      name: 'notfound',
+      component: NotFound
     }
   ],
   mode: 'history'
