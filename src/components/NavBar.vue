@@ -113,7 +113,8 @@
         if (this.isAuthenticated) {
           menuItems = [
             {icon: 'dashboard', title: 'Dashboard', link: '/dashboard'},
-            {icon: 'person', title: 'Profile', link: '/profile'}
+            {icon: 'person', title: 'Profile', link: '/profile'},
+            {icon: '', title: 'Credits', link: '/about'},
           ]
         }
         return menuItems
