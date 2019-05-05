@@ -109,7 +109,6 @@ export default {
         photoUrl: payload.photoURL
       })
       dispatch('readProfile')
-      router.push('/dashboard')
     },
     resetPasswordWithEmail ({ commit }, payload) {
       const { email } = payload
@@ -146,6 +145,13 @@ export default {
     },
     // --- profile
     createProfile({ state, dispatch }) {
+
+      //supercharge de state.user pour la premiere creation du profile
+      state.user = {
+        ...state.user,
+          scUsername: null,
+          scTest: 123 }
+
       fb.usersCollection.doc(state.user.id).set(state.user).then(function() {
         dispatch('readProfile')
       }).catch(err => {
@@ -153,17 +159,19 @@ export default {
       })
     },
     readProfile({ state, dispatch }) {
-
       fb.usersCollection.doc(state.user.id).get().then(function(doc) {
         if (doc.exists) {
           if(doc.data().scUsername){
-            state.user = { ...state.user, scUsername: doc.data().scUsername }
+            state.user = {
+              ...state.user,
+                scUsername: doc.data().scUsername,
+                presentation: doc.data().userProfile.presentation
+            }
           }else{
-            state.user = { ...state.user, scUsername: false }
+            state.user = { ...state.user, scUsername: null }
           }
 
         }else {
-          console.log('creation du profile')
           dispatch('createProfile')
         }
       }).catch(err => {
@@ -171,8 +179,10 @@ export default {
       })
     },
     updateProfile({ state, dispatch }, data) {
-      let scUsername = data.scUsername
-      fb.usersCollection.doc(state.user.id).update({ scUsername: scUsername }).then(function() {
+      let userProfile = data
+      fb.usersCollection.doc(state.user.id).update({
+        userProfile
+      }).then(function() {
         dispatch('readProfile')
       }).catch(err => {
           console.log(err)
