@@ -28,9 +28,7 @@ export default {
             commit('setLoading', false)
             const newUser = {
               id: user.uid,
-              name: user.displayName,
-              email: user.email,
-              photoUrl: user.photoURL
+              email: user.email
             }
             commit('setUser', newUser)
             commit('setIsAuthenticated', true)
@@ -56,9 +54,7 @@ export default {
             commit('setLoading', false)
             const newUser = {
               id: user.uid,
-              name: user.displayName,
-              email: user.email,
-              photoUrl: user.photoURL
+              email: user.email
             }
             commit('setUser', newUser)
             commit('setIsAuthenticated', true)
@@ -84,9 +80,7 @@ export default {
             commit('setLoading', false)
             const newUser = {
               id: user.uid,
-              name: user.displayName,
-              email: user.email,
-              photoUrl: user.photoURL
+              email: user.email
             }
             commit('setUser', newUser)
             commit('setIsAuthenticated', true);
@@ -104,9 +98,7 @@ export default {
     autoSignIn ({commit, dispatch}, payload) {
       commit('setUser', {
         id: payload.uid,
-        name: payload.displayName,
-        email: payload.email,
-        photoUrl: payload.photoURL
+        email: payload.email
       })
       dispatch('readProfile')
     },
@@ -146,11 +138,14 @@ export default {
     // --- profile
     createProfile({ state, dispatch }) {
 
-      //supercharge de state.user pour la premiere creation du profile
       state.user = {
         ...state.user,
+          createdAt: Date.now(),
+          rank: 'user',
           scUsername: null,
-          scTest: 123 }
+          biography: null,
+          avatar: null
+           }
 
       fb.usersCollection.doc(state.user.id).set(state.user).then(function() {
         dispatch('readProfile')
@@ -161,16 +156,14 @@ export default {
     readProfile({ state, dispatch }) {
       fb.usersCollection.doc(state.user.id).get().then(function(doc) {
         if (doc.exists) {
-          if(doc.data().scUsername){
             state.user = {
               ...state.user,
                 scUsername: doc.data().scUsername,
-                presentation: doc.data().userProfile.presentation
+                createdAt: doc.data().createdAt,
+                rank: doc.data().rank,
+                avatar: doc.data().avatar,
+                biography: doc.data().biography
             }
-          }else{
-            state.user = { ...state.user, scUsername: null }
-          }
-
         }else {
           dispatch('createProfile')
         }
@@ -179,10 +172,10 @@ export default {
       })
     },
     updateProfile({ state, dispatch }, data) {
-      let userProfile = data
-      fb.usersCollection.doc(state.user.id).update({
-        userProfile
-      }).then(function() {
+      console.log(typeof(data))
+      fb.usersCollection.doc(state.user.id).update(
+        data
+      ).then(function() {
         dispatch('readProfile')
       }).catch(err => {
           console.log(err)

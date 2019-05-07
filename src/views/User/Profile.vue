@@ -21,15 +21,11 @@
           ></v-text-field>
           <v-btn
             color="success"
-            @click="updateProfile"
+            @click="updateScUsername"
           >
             Enregistrer
           </v-btn>
         </v-form>
-      </v-flex>
-
-      <v-flex v-else xs12 md12>
-        <p>Star Citizen username: <strong>{{ user.scUsername }}</strong></p>
       </v-flex>
 
         <v-layout row wrap>
@@ -52,7 +48,7 @@
           <v-flex xs9 md9>
             <v-flex xs12 md12 pa-3>
               <p class="display-1">{{ user.scUsername }}</p>
-              <p><a :href="linktorsi">Citizen Dossier</a></p>
+              <p><a :href="scUrlProfile + user.scUsername">Citizen Dossier ({{ user.scUsername }})</a></p>
 
               <v-chip>
                 <v-avatar class="deep-orange darken-4">P</v-avatar>
@@ -68,12 +64,10 @@
             <v-flex xs12 md12 pa-3>
 
               <v-card>
-                <v-card-title><strong>PRESENTATION</strong></v-card-title>
+                <v-card-title><strong>BIOGRAPHY</strong></v-card-title>
 
-
-
-                <v-card-text v-if="editPresentation === false" class="grey lighten-5">
-                  <p>{{ user.presentation }}</p>
+                <v-card-text v-if="editBiography === false" class="grey lighten-5">
+                  <p>{{ user.biography }}</p>
                   <v-btn
                     color="blue"
                     dark
@@ -82,7 +76,7 @@
                     bottom
                     left
                     fab
-                    @click="onEditPresentation"
+                    @click="onEditBiography"
                   >
                     <v-icon>edit</v-icon>
                   </v-btn>
@@ -90,10 +84,11 @@
 
                 <v-card-text v-else class="grey lighten-5">
                   <v-textarea
-                    name="presentation"
-                    v-model="presentation"
-                    label="Enter your presentation here"
+                    name="biography"
+                    v-model="biography"
+                    label="Enter your biography here"
                   >
+                  {{ user.biography }}
                   </v-textarea>
                   <v-btn
                     color="green"
@@ -103,12 +98,11 @@
                     bottom
                     left
                     fab
-                    @click="onSavePresentation"
+                    @click="onSaveBiography"
                   >
                     <v-icon>save</v-icon>
                   </v-btn>
                 </v-card-text>
-
 
               </v-card>
             </v-flex>
@@ -127,38 +121,34 @@ export default {
   data () {
     return {
       scUsername: '',
-      presentation: '',
-      linktorsi: 'https://robertsspaceindustries.com/citizens/Luicidus',
-      editPresentation: false
+      biography: '',
+      editBiography: false,
+      scUrlProfile: 'https://robertsspaceindustries.com/citizens/',
     }
   },
   computed: {
     user () {
       return this.$store.getters.user
     },
-    ...mapState(['userProfile'])
+    ...mapState(['profile'])
   },
   methods: {
-    updateProfile() {
+    // update profile
+    updateScUsername() {
       this.$store.dispatch('updateProfile', {
-          // si on a changé le scUsername
-          scUsername: this.scUsername !== '' ? this.scUsername : this.userProfile.scUsername
+          scUsername: this.scUsername !== '' ? this.scUsername : null
       })
       this.$toasted.show('Save completed!')
     },
-    createProfile() {
-      this.$store.dispatch('createProfile')
+    onEditBiography() {
+      this.editBiography = true
     },
-    onEditPresentation() {
-      this.editPresentation = true
-    },
-    onSavePresentation() {
+    onSaveBiography() {
       this.$store.dispatch('updateProfile', {
-        // si on a changé le scUsername
-          presentation: this.presentation !== '' ? this.presentation : this.userProfile.presentation
+          biography: this.biography !== '' ? this.biography : null
       })
       this.$toasted.show('Save completed!')
-      this.editPresentation = false
+      this.editBiography = false
     }
   }
 }
