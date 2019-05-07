@@ -1,11 +1,14 @@
 import Vue from 'vue'
-import './plugins/vuetify'
+import VueI18n from 'vue-i18n'
+import Vuetify from 'vuetify/lib'
+import 'vuetify/src/stylus/app.styl'
 import Toasted from 'vue-toasted';
 
 import App from './App.vue'
 
 import router from './router/'
 import { store } from './store'
+import i18n from './i18n'
 
 // firebase config file
 const fb = require('./fb.js')
@@ -19,10 +22,20 @@ const Options = {
 }
 
 Vue.use(Toasted, Options)
+Vue.use(VueI18n)
+
+Vue.use(Vuetify, {
+  iconfont: 'md',
+  lang: {
+    t: (key, ...params) => i18n.t(key, params)
+  }
+})
+
 
 new Vue({
   router,
   store,
+  i18n,
   created () {
     fb.auth.onAuthStateChanged((user) => {
       if (user) {

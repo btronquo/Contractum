@@ -1,16 +1,39 @@
+<i18n>
+{
+  "fr": {
+    "viewTitle": "Connection",
+    "viewDescription": "Utilisez le formulaire suivant pour vous connecter",
+    "labelEmail": "Email",
+    "labelPassword": "Mot de passe",
+    "btnSignIn": "Se connecter",
+    "btnSignInWithGoogle": "Avec Google",
+    "linkNotMember": "Pas encore membre?"
+  },
+  "en": {
+    "viewTitle": "Login",
+    "viewDescription": "Use the form bellow to sign-in",
+    "labelEmail": "Email",
+    "labelPassword": "Password",
+    "btnSignIn": "Sign In",
+    "btnSignInWithGoogle": "With Google",
+    "linkNotMember": "Not a member?"
+  }
+}
+</i18n>
+
 <template>
   <div class="login">
 
     <v-container class="my-5">
-      <h1>Login</h1>
+      <h1>{{ $t('viewTitle') }}</h1>
       <v-layout row>
       <v-flex xs12 md6>
-        <p>Use the form bellow to authenticate</p>
+        <p>{{ $t('viewDescription') }}</p>
       </v-flex>
         <form @submit.prevent="onSignin">
           <v-text-field
             v-model="email"
-            label="E-mail"
+            :label="$t('labelEmail')"
             type="email"
             autocomplete="on"
             required
@@ -19,14 +42,14 @@
 
           <v-text-field
             v-model="password"
-            label="Password"
+            :label="$t('labelPassword')"
             type="password"
             autocomplete="current-password"
             required
           >
           </v-text-field>
           <v-btn type="submit" :disabled="loading" :loading="loading">
-            Sign in
+            {{ $t('btnSignIn') }}
             <v-icon right>lock_open</v-icon>
             <span slot="loader" class="custom-loader">
               <v-icon light>cached</v-icon>
@@ -34,14 +57,15 @@
           </v-btn>
 
           <div class="text-xs-center">
-            <v-btn color="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">Sign In with Google
+            <v-btn color="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">
+              {{ $t('btnSignInWithGoogle') }}
               <v-icon right dark>lock_open</v-icon>
               <span slot="loader" class="custom-loader">
                 <v-icon light>cached</v-icon>
               </span>
             </v-btn>
           </div>
-          <p><router-link to="signup">Not a member?</router-link></p>
+          <p><router-link to="signup">{{ $t('linkNotMember') }}</router-link></p>
         </form>
     </v-layout>
   </v-container>

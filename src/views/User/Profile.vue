@@ -1,29 +1,47 @@
+<i18n>
+{
+  "fr": {
+    "myProfile": "Mon Profil",
+    "MsgAlertMissingUsername": "Vous n'avez pas encore mis à jour votre nom d'utilisateur StarCitizen. Merci de remplir le champs suivant",
+    "btnSave": "Sauvegarder",
+    "biography": "biographie",
+    "labelScUsername": "Votre Pseudo Star Citizen",
+    "labelBiography": "Entrez votre biographie"
+  },
+  "en": {
+    "myProfile": "My Profile",
+    "MsgAlertMissingUsername": "Your Star Citizen username is missing. Thanks to fill the text area bellow",
+    "btnSave": "Save",
+    "biography": "biography",
+    "labelScUsername": "Your Star Citizen nickname",
+    "labelBiography": "Enter your biography here"
+  }
+}
+</i18n>
+
 <template>
-  <div class="dashboard">
+  <div class="myprofile">
     <v-container class="my-5">
-      <h1>My Profile</h1>
+      <h1>{{ $t('myProfile') }}</h1>
       <v-flex v-if="(!user.scUsername)" xs12 md12 >
-        <!-- case: if user doesn't set his star citizen's username -->
         <v-alert
           :value="true"
           type="warning"
         >
-          Vous n'avez pas encore mis à jour votre nom d'utilisateur StarCitizen
-          <br>
-          Merci de remplir le champs suivant
+          {{ $t('MsgAlertMissingUsername') }}
         </v-alert>
         <v-form>
           <v-text-field
             v-model="scUsername"
             :counter="15"
-            label="Star Citizen Username"
+            :label="$t('labelScUsername')"
             required
           ></v-text-field>
           <v-btn
             color="success"
             @click="updateScUsername"
           >
-            Enregistrer
+            {{ $t('btnSave') }}
           </v-btn>
         </v-form>
       </v-flex>
@@ -86,7 +104,7 @@
                   <v-textarea
                     name="biography"
                     v-model="biography"
-                    label="Enter your biography here"
+                    :label="$t('labelBiography')"
                   >
                   {{ user.biography }}
                   </v-textarea>

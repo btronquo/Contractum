@@ -1,3 +1,24 @@
+<i18n>
+{
+  "fr": {
+    "signUp": "S'enregistrer",
+    "signIn": "Connexion",
+    "dashboard": "Panneau de controle",
+    "credits": "Crédits",
+    "logout": "Déconnexion",
+    "profile": "Profil"
+  },
+  "en": {
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "dashboard": "Dashboard",
+    "credits": "Credits",
+    "logout": "Logout",
+    "profile": "Profile"
+  }
+}
+</i18n>
+
 <template>
   <div id="navbar">
   <nav>
@@ -20,7 +41,7 @@
         :key="item.title"
         :to="item.link">
         <v-icon left>{{ item.icon }}</v-icon>
-        {{ item.title }}
+        {{ $t(item.title) }}
       </v-btn>
 
       <v-btn
@@ -28,7 +49,7 @@
         flat
         @click="onLogout">
         <v-icon left dark>exit_to_app</v-icon>
-        Logout
+        {{ $t('logout') }}
       </v-btn>
 
       </v-toolbar-items>
@@ -68,7 +89,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title>{{ $t(item.title) }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
@@ -82,7 +103,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title>Logout</v-list-tile-title>
+            <v-list-tile-title>{{ $t('logout') }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
@@ -106,15 +127,15 @@
     computed: {
       menuItems () {
         let menuItems = [
-          {icon: 'face', title: 'Sign up', link: '/signup'},
-          {icon: 'lock_open', title: 'Sign in', link: '/signin'},
-          {icon: '', title: 'Credits', link: '/about'},
+          {icon: 'face', title: 'signUp', link: '/signup'},
+          {icon: 'lock_open', title: 'signIn', link: '/signin'},
+          {icon: '', title: 'credits', link: '/about'},
         ]
         if (this.isAuthenticated) {
           menuItems = [
-            {icon: 'dashboard', title: 'Dashboard', link: '/dashboard'},
-            {icon: 'person', title: 'Profile', link: '/profile'},
-            {icon: '', title: 'Credits', link: '/about'},
+            {icon: 'dashboard', title: 'dashboard', link: '/dashboard'},
+            {icon: 'person', title: 'profile', link: '/profile'},
+            {icon: '', title: 'credits', link: '/about'},
           ]
         }
         return menuItems
