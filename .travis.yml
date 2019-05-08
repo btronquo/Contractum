@@ -1,11 +1,13 @@
 language: node_js
 node_js:
-  - 10
+  - 10f
 script:
   - npm run test:unit
 after_script:
   - cat ./coverage/lcov.info | coveralls
-after_success: 'npm run build'
+after_success:
+  - npm run build
+  - git reset --hard
 deploy:
   provider: firebase
   token:
