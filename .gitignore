@@ -2,3 +2,4 @@ node_modules
 src/fb.js
 /dist
 /.firebase
+.env.local
