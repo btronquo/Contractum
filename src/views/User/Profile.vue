@@ -56,16 +56,18 @@
               </v-avatar>
             </v-flex>
             <v-flex xs12 md12 pa-3>
-              <p>Event proposed: <strong>5</strong></p>
-              <p>Event realized: <strong>2</strong></p>
-              <p>Contracts: <strong>3</strong></p>
+              soon
             </v-flex>
 
           </v-flex>
 
           <v-flex xs9 md9>
             <v-flex xs12 md12 pa-3>
-              <p class="display-1">{{ user.scUsername }}</p>
+                <h1><strong>{{ user.scUsername.toUpperCase() }}</strong><v-btn small color="primary">
+                  <v-icon>
+                    link
+                  </v-icon>
+                  Primary</v-btn></h1>
               <p><a :href="scUrlProfile + user.scUsername">Citizen Dossier ({{ user.scUsername }})</a></p>
 
               <v-chip>
@@ -82,7 +84,7 @@
             <v-flex xs12 md12 pa-3>
 
               <v-card>
-                <v-card-title><strong>BIOGRAPHY</strong></v-card-title>
+                <v-card-title><strong><v-icon>description</v-icon> BIOGRAPHY</strong></v-card-title>
 
                 <v-card-text v-if="editBiography === false" class="grey lighten-5">
                   <p>{{ user.biography }}</p>

@@ -22,7 +22,7 @@
 <template>
   <div id="navbar">
   <nav>
-    <v-toolbar flat app>
+    <v-toolbar flat app  dark dense color="blue-grey darken-3">
 
       <v-toolbar-side-icon  @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
       <v-toolbar-title class="text-uppercase">
