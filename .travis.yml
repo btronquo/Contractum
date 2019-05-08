@@ -1,10 +1,8 @@
 language: node_js
 node_js:
   - 10
-cache:
-  directories:
-    - node_modules
 script:
   - npm run test:unit
 after_script:
   - cat ./coverage/lcov.info | coveralls
+secure: "eTmGQSYBaeyUcU35AFsOJObW909QehaiPisCS9e1Ta2V4QRdSJ+orkrY0fE1zN3z7P6LUq5ETtMl3AfO6bVv1/jsnywESR33n0hrnkS2vvNxD5jqZ82mXfF8xYp5SlWxGT2O4dqXnwo8xFWl1x2ma9bere8VifTtZ/ckOMRxuUgmvZjJwisQ+NvQkccm+keiVnb0N8VL61t2EPV0vGlNSjmsSHOFwEGe+hgI6PqM7re6zgf0BCU4ocvj43FQ+rTjsP00BAEwHHRc6d+sprRnFaA4jQdDbPjHbsLDCL+Oysyo+IUyN0XsQwwes3IvUPf3vMW9gy2+xmFD078+LAZuqvw7MPakW6ISvbtJon5nijNThfSm4Wx3CRNHyBZHWdtegZ2++WkCOsgJwPyTzDLqxh+Xt6QHIstUYcW6iMJeYMbi+yUAuMn+pFszoW32dXDT7aS97OzLj387ZZD6W8qwJGMDSCa3tQkNEv9xW6UbHkGo4+Av8bvBuYO9/e4duMd3/y/bj+F8OcTH18vzLmvA+bwArEc95Gh/VphEAiSnfiHx2YBOdV50WG6SR3hxmbT+j3jDKZIVnvkSvDkSv3rp/z6WWZCJyOi9+0fmayfL21FOZnhbtxUDt6r2xClR5KCwHkQHptFpmk1CWL56UFWYJ9ckiBRgHV7Hg4O5x5d6E8k="
