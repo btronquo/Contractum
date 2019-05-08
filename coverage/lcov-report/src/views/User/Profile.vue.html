@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/views/User/Profile.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/views/User</a> Profile.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/9</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;i18n&gt;
+{
+  "fr": {
+    "myProfile": "Mon Profil",
+    "MsgAlertMissingUsername": "Vous n'avez pas encore mis à jour votre nom d'utilisateur StarCitizen. Merci de remplir le champs suivant",
+    "btnSave": "Sauvegarder",
+    "biography": "biographie",
+    "labelScUsername": "Votre Pseudo Star Citizen",
+    "labelBiography": "Entrez votre biographie"
+  },
+  "en": {
+    "myProfile": "My Profile",
+    "MsgAlertMissingUsername": "Your Star Citizen username is missing. Thanks to fill the text area bellow",
+    "btnSave": "Save",
+    "biography": "biography",
+    "labelScUsername": "Your Star Citizen nickname",
+    "labelBiography": "Enter your biography here"
+  }
+}
+&lt;/i18n&gt;
+&nbsp;
+&lt;template&gt;
+  &lt;div class="myprofile"&gt;
+    &lt;v-container class="my-5"&gt;
+      &lt;h1&gt;{{ $t('myProfile') }}&lt;/h1&gt;
+      &lt;v-flex v-if="(!user.scUsername)" xs12 md12 &gt;
+        &lt;v-alert
+          :value="true"
+          type="warning"
+        &gt;
+          {{ $t('MsgAlertMissingUsername') }}
+        &lt;/v-alert&gt;
+        &lt;v-form&gt;
+          &lt;v-text-field
+            v-model="scUsername"
+            :counter="15"
+            :label="$t('labelScUsername')"
+            required
+          &gt;&lt;/v-text-field&gt;
+          &lt;v-btn
+            color="success"
+            @click="updateScUsername"
+          &gt;
+            {{ $t('btnSave') }}
+          &lt;/v-btn&gt;
+        &lt;/v-form&gt;
+      &lt;/v-flex&gt;
+&nbsp;
+        &lt;v-layout row wrap&gt;
+&nbsp;
+          &lt;v-flex xs2 md2&gt;
+            &lt;!-- avatar --&gt;
+            &lt;v-flex xs12 md12 pa-3&gt;
+              &lt;v-avatar size="128" color="grey lighten-4"&gt;
+                &lt;img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="avatar"&gt;
+              &lt;/v-avatar&gt;
+            &lt;/v-flex&gt;
+            &lt;v-flex xs12 md12 pa-3&gt;
+              soon
+            &lt;/v-flex&gt;
+&nbsp;
+          &lt;/v-flex&gt;
+&nbsp;
+          &lt;v-flex xs9 md9&gt;
+            &lt;v-flex xs12 md12 pa-3&gt;
+                &lt;h1&gt;&lt;strong&gt;{{ user.scUsername.toUpperCase() }}&lt;/strong&gt;&lt;v-btn small color="primary"&gt;
+                  &lt;v-icon&gt;
+                    link
+                  &lt;/v-icon&gt;
+                  Primary&lt;/v-btn&gt;&lt;/h1&gt;
+              &lt;p&gt;&lt;a :href="scUrlProfile + user.scUsername"&gt;Citizen Dossier ({{ user.scUsername }})&lt;/a&gt;&lt;/p&gt;
+&nbsp;
+              &lt;v-chip&gt;
+                &lt;v-avatar class="deep-orange darken-4"&gt;P&lt;/v-avatar&gt;
+                PIRATE
+              &lt;/v-chip&gt;
+&nbsp;
+              &lt;v-chip&gt;
+                &lt;v-avatar class="blue darken-1"&gt;U&lt;/v-avatar&gt;
+                UEE
+              &lt;/v-chip&gt;
+&nbsp;
+            &lt;/v-flex&gt;
+            &lt;v-flex xs12 md12 pa-3&gt;
+&nbsp;
+              &lt;v-card&gt;
+                &lt;v-card-title&gt;&lt;strong&gt;&lt;v-icon&gt;description&lt;/v-icon&gt; BIOGRAPHY&lt;/strong&gt;&lt;/v-card-title&gt;
+&nbsp;
+                &lt;v-card-text v-if="editBiography === false" class="grey lighten-5"&gt;
+                  &lt;p&gt;{{ user.biography }}&lt;/p&gt;
+                  &lt;v-btn
+                    color="blue"
+                    dark
+                    small
+                    absolute
+                    bottom
+                    left
+                    fab
+                    @click="onEditBiography"
+                  &gt;
+                    &lt;v-icon&gt;edit&lt;/v-icon&gt;
+                  &lt;/v-btn&gt;
+                &lt;/v-card-text&gt;
+&nbsp;
+                &lt;v-card-text v-else class="grey lighten-5"&gt;
+                  &lt;v-textarea
+                    name="biography"
+                    v-model="biography"
+                    :label="$t('labelBiography')"
+                  &gt;
+                  {{ user.biography }}
+                  &lt;/v-textarea&gt;
+                  &lt;v-btn
+                    color="green"
+                    dark
+                    small
+                    absolute
+                    bottom
+                    left
+                    fab
+                    @click="onSaveBiography"
+                  &gt;
+                    &lt;v-icon&gt;save&lt;/v-icon&gt;
+                  &lt;/v-btn&gt;
+                &lt;/v-card-text&gt;
+&nbsp;
+              &lt;/v-card&gt;
+            &lt;/v-flex&gt;
+&nbsp;
+          &lt;/v-flex&gt;
+        &lt;/v-layout&gt;
+&nbsp;
+    &lt;/v-container&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+<span class="cstat-no" title="statement not covered" >import { mapState } from 'vuex'</span>
+&nbsp;
+export default {
+  data () {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      scUsername: '',
+      biography: '',
+      editBiography: false,
+      scUrlProfile: 'https://robertsspaceindustries.com/citizens/',
+    }
+  },
+  computed: {
+    user () {
+<span class="cstat-no" title="statement not covered" >      return this.$store.getters.user</span>
+    },
+    ...mapState(['profile'])
+  },
+  methods: {
+    // update profile
+    updateScUsername() {
+<span class="cstat-no" title="statement not covered" >      this.$store.dispatch('updateProfile', {</span>
+          scUsername: this.scUsername !== '' ? this.scUsername : null
+      })
+<span class="cstat-no" title="statement not covered" >      this.$toasted.show('Save completed!')</span>
+    },
+    onEditBiography() {
+<span class="cstat-no" title="statement not covered" >      this.editBiography = true</span>
+    },
+    onSaveBiography() {
+<span class="cstat-no" title="statement not covered" >      this.$store.dispatch('updateProfile', {</span>
+          biography: this.biography !== '' ? this.biography : null
+      })
+<span class="cstat-no" title="statement not covered" >      this.$toasted.show('Save completed!')</span>
+<span class="cstat-no" title="statement not covered" >      this.editBiography = false</span>
+    }
+  }
+}
+&lt;/script&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed May 08 2019 15:20:52 GMT+0200 (Paris, Madrid (heure d’été))
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>
