@@ -15,7 +15,6 @@
   <div class="about">
     <v-container class="my-5">
       <h1>{{ $t('viewTitle') }}</h1>
-      {{ this.msg }}
       <v-layout row>
       <v-flex xs12 md6>
         <p>{{ $t('viewDescription') }}</p>
@@ -29,7 +28,6 @@
 export default {
   data () {
     return {
-      msg: 'bonjour'
     }
   }
 }
