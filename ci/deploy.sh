@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 echo "{
-  \"apiKey\": \""$VUE_APP_FIREBASE_APIKEY" \",
-  \"authDomain\": \""$VUE_APP_FIREBASE_AUTHDOMAIN"\",
-  \"databaseURL\": \""$VUE_APP_FIREBASE_DATABASEURL"\",
-  \"projectId\": \""$VUE_APP_FIREBASE_PROJECTID"\",
-  \"storageBucket\": \""$VUE_APP_FIREBASE_STORAGEBUCKET"\",
-  \"messagingSenderId\": \""$VUE_APP_FIREBASE_MESSAGINGSENDERID"\"
+  \"apiKey\": \""$FIREBASE_APIKEY" \",
+  \"authDomain\": \""$FIREBASE_AUTHDOMAIN"\",
+  \"databaseURL\": \""$FIREBASE_DATABASEURL"\",
+  \"projectId\": \""$FIREBASE_PROJECTID"\",
+  \"storageBucket\": \""$FIREBASE_STORAGEBUCKET"\",
+  \"messagingSenderId\": \""$FIREBASE_MESSAGINGSENDERID"\"
 }" > "src/fbconfig.json"
