@@ -7,4 +7,4 @@ echo "{
   \"projectId\": \""$VUE_APP_FIREBASE_PROJECTID"\",
   \"storageBucket\": \""$VUE_APP_FIREBASE_STORAGEBUCKET"\",
   \"messagingSenderId\": \""$VUE_APP_FIREBASE_MESSAGINGSENDERID"\"
-}" > ../src/fbconfig.json
+}" > "../src/fbconfig.json"
