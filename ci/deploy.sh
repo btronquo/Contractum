@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-FILE="../src/fbconfig.json"
-
 echo "{
   \"apiKey\": \""$VUE_APP_FIREBASE_APIKEY" \",
   \"authDomain\": \""$VUE_APP_FIREBASE_AUTHDOMAIN"\",
@@ -9,4 +7,4 @@ echo "{
   \"projectId\": \""$VUE_APP_FIREBASE_PROJECTID"\",
   \"storageBucket\": \""$VUE_APP_FIREBASE_STORAGEBUCKET"\",
   \"messagingSenderId\": \""$VUE_APP_FIREBASE_MESSAGINGSENDERID"\"
-}" > $FILE
+}" > ../src/fbconfig.json
