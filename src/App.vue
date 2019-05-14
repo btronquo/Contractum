@@ -2,7 +2,6 @@
   <v-app class="grey lighten-4">
     <NavBar/>
     <v-content>
-      <Modal @modalForm="dialog = true"/>
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
@@ -12,13 +11,11 @@
 
 <script>
 import NavBar from '@/components/NavBar'
-import Modal from '@/components/ModalSignupLogin'
 
 export default {
   name: 'App',
   components: {
-    NavBar,
-    Modal
+    NavBar
   },
   data () {
     return {

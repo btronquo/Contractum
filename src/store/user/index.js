@@ -92,7 +92,6 @@ export default {
             commit('setLoading', false)
             commit('setError', error)
             console.log(error)
-            this._vm.$toasted.show('An error occured, please try again')
           }
         )
     },

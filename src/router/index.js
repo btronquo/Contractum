@@ -3,12 +3,12 @@ import Router from 'vue-router'
 
 // lazy-loaded when the route is visited
 const Home = () => import('@/views/Home')
-const SignUp = () => import('@/views/Core/SignUp')
-const SignIn = () => import('@/views/Core/SignIn')
+//const Profile = () => import('@/components/User/Profile')
+const SignUp = () => import('@/views/SignUp')
+const SignIn = () => import('@/views/SignIn')
 const Dashboard = () => import('@/views/Dashboard')
 const About = () => import('@/views/About')
 const Profile = () => import('@/views/User/Profile')
-const ProfilePublic = () => import('@/views/User/ProfilePublic')
 const NotFound = () => import('@/views/Core/404')
 import AuthGuard from './auth-guard'
 
@@ -35,14 +35,9 @@ export default new Router({
     },
     {
       path: '/profile',
-      name: 'profile',
+      name: 'Profile',
       component: Profile,
       beforeEnter: AuthGuard
-    },
-    {
-      path: '/user/:scusername',
-      name: 'public profile',
-      component: ProfilePublic,
     },
     {
       path: '/signin',

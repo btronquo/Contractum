@@ -20,10 +20,9 @@
 </i18n>
 
 <template>
-
   <div id="navbar">
-    <nav>
-      <v-toolbar flat app dark dense color="blue-grey darken-3">
+  <nav>
+    <v-toolbar flat app  dark dense color="blue-grey darken-3">
 
       <v-toolbar-side-icon  @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
       <v-toolbar-title class="text-uppercase">
@@ -52,14 +51,6 @@
         <v-icon left dark>exit_to_app</v-icon>
         {{ $t('logout') }}
       </v-btn>
-
-    <v-btn
-      color="primary"
-      dark
-      @click="toto"
-    >
-      Open Dialog
-    </v-btn>
 
       </v-toolbar-items>
 
@@ -126,8 +117,6 @@
 
 <script>
   export default {
-    components: {
-    },
     data () {
       return {
         title: 'Contractum',
@@ -161,10 +150,6 @@
     methods: {
       onLogout () {
         this.$store.dispatch('logout')
-      },
-      toto () {
-        console.log('click sur toto')
-        this.$emit('modalForm')
       }
     }
   }
