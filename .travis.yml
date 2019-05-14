@@ -7,7 +7,7 @@ before_script:
   - . ci/deploy.sh
 script:
   - npm run test:unit
-  - npm run build NODE_ENV=production
+  - npm run build
 after_script:
   - cat ./coverage/lcov.info | coveralls
 after_success:
