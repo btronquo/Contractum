@@ -4,7 +4,7 @@
     "myProfile": "Mon Profil",
     "MsgAlertMissingUsername": "Vous n'avez pas encore mis à jour votre nom d'utilisateur StarCitizen. Merci de remplir le champs suivant",
     "btnSave": "Sauvegarder",
-    "biography": "biographie",
+    "biography": "Biographie",
     "labelScUsername": "Votre Pseudo Star Citizen",
     "labelBiography": "Entrez votre biographie"
   },
@@ -47,7 +47,6 @@
       </v-flex>
 
         <v-layout row wrap>
-
           <v-flex xs2 md2>
             <!-- avatar -->
             <v-flex xs12 md12 pa-3>
@@ -58,33 +57,21 @@
             <v-flex xs12 md12 pa-3>
               soon
             </v-flex>
-
           </v-flex>
 
           <v-flex xs9 md9>
             <v-flex xs12 md12 pa-3>
-                <h1><strong>{{ user.scUsername.toUpperCase() }}</strong><v-btn small color="primary">
+                <h1><strong>{{ user.scUsername }}</strong><v-btn small color="primary">
                   <v-icon>
                     link
                   </v-icon>
                   Primary</v-btn></h1>
               <p><a :href="scUrlProfile + user.scUsername">Citizen Dossier ({{ user.scUsername }})</a></p>
-
-              <v-chip>
-                <v-avatar class="deep-orange darken-4">P</v-avatar>
-                PIRATE
-              </v-chip>
-
-              <v-chip>
-                <v-avatar class="blue darken-1">U</v-avatar>
-                UEE
-              </v-chip>
-
             </v-flex>
             <v-flex xs12 md12 pa-3>
 
               <v-card>
-                <v-card-title><strong><v-icon>description</v-icon> BIOGRAPHY</strong></v-card-title>
+                <v-card-title><strong><v-icon>description</v-icon> {{ $t('biography') }}</strong></v-card-title>
 
                 <v-card-text v-if="editBiography === false" class="grey lighten-5">
                   <p>{{ user.biography }}</p>
