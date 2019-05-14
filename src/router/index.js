@@ -3,9 +3,8 @@ import Router from 'vue-router'
 
 // lazy-loaded when the route is visited
 const Home = () => import('@/views/Home')
-//const Profile = () => import('@/components/User/Profile')
-const SignUp = () => import('@/views/SignUp')
-const SignIn = () => import('@/views/SignIn')
+const SignUp = () => import('@/views/User/SignUp')
+const SignIn = () => import('@/views/User/SignIn')
 const Dashboard = () => import('@/views/Dashboard')
 const About = () => import('@/views/About')
 const Profile = () => import('@/views/User/Profile')

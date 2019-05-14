@@ -51,7 +51,7 @@
           <v-btn type="submit" :disabled="loading" :loading="loading">
             {{ $t('btnSignIn') }}
             <v-icon right>lock_open</v-icon>
-            <span slot="loader" class="custom-loader">
+            <span slot="loader" class="spin">
               <v-icon light>cached</v-icon>
               </span>
           </v-btn>
@@ -60,7 +60,7 @@
             <v-btn color="red" dark :disabled="loading" :loading="loading" @click.prevent="onSigninGoogle">
               {{ $t('btnSignInWithGoogle') }}
               <v-icon right dark>lock_open</v-icon>
-              <span slot="loader" class="custom-loader">
+              <span slot="loader" class="spin">
                 <v-icon light>cached</v-icon>
               </span>
             </v-btn>
