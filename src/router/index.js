@@ -8,6 +8,7 @@ const SignIn = () => import('@/views/User/SignIn')
 const Dashboard = () => import('@/views/Dashboard')
 const About = () => import('@/views/About')
 const Profile = () => import('@/views/User/Profile')
+const ProfilePublic = () => import('@/views/User/ProfilePublic')
 const NotFound = () => import('@/views/Core/404')
 import AuthGuard from './auth-guard'
 
@@ -28,13 +29,13 @@ export default new Router({
     },
     {
       path: '/dashboard',
-      name: 'dashboard',
+      name: 'Dashboard',
       component: Dashboard,
       beforeEnter: AuthGuard
     },
     {
       path: '/profile',
-      name: 'Profile',
+      name: 'profile',
       component: Profile,
       beforeEnter: AuthGuard
     },
@@ -47,6 +48,11 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       component: SignUp
+    },
+    {
+      path: '/user/:scUsername',
+      name: 'user public profile',
+      component: ProfilePublic,
     },
     {
       path: '/404',
