@@ -50,7 +50,7 @@ export default new Router({
       component: SignUp
     },
     {
-      path: '/user/:scUsername',
+      path: '/user/:id',
       name: 'user public profile',
       component: ProfilePublic,
     },
