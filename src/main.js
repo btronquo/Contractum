@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import Vuetify from 'vuetify/lib'
 import 'vuetify/src/stylus/app.styl'
+import { firestorePlugin } from 'vuefire'
 import Toasted from 'vue-toasted';
 
 import App from './App.vue'
@@ -9,6 +10,8 @@ import App from './App.vue'
 import router from './router/'
 import { store } from './store'
 import i18n from './i18n'
+
+Vue.use(firestorePlugin)
 
 // firebase config file
 const fb = require('./fb.js')
