@@ -6,7 +6,8 @@
     "btnSave": "Sauvegarder",
     "biography": "biographie",
     "labelScUsername": "Votre Pseudo Star Citizen",
-    "labelBiography": "Entrez votre biographie"
+    "labelBiography": "Entrez votre biographie",
+    "labelRsiProfile": "Profil RSI"
   },
   "en": {
     "myProfile": "My Profile",
@@ -14,7 +15,8 @@
     "btnSave": "Save",
     "biography": "biography",
     "labelScUsername": "Your Star Citizen nickname",
-    "labelBiography": "Enter your biography here"
+    "labelBiography": "Enter your biography here",
+    "labelRsiProfile": "RSI Profile"
   }
 }
 </i18n>
@@ -63,12 +65,8 @@
 
           <v-flex xs9 md9>
             <v-flex xs12 md12 pa-3>
-                <h1><strong>{{ user.scUsername.toUpperCase() }}</strong><v-btn small color="primary">
-                  <v-icon>
-                    link
-                  </v-icon>
-                  Primary</v-btn></h1>
-              <p><a :href="scUrlProfile + user.scUsername">Citizen Dossier ({{ user.scUsername }})</a></p>
+                <h1><strong>{{ user.scUsername }}</strong></h1>
+              <p><a :href="scUrlProfile + user.scUsername">{{ $t('labelRsiProfile') }}: ({{ user.scUsername }})</a></p>
 
               <v-chip>
                 <v-avatar class="deep-orange darken-4">P</v-avatar>
