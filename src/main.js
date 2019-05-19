@@ -12,7 +12,7 @@ import { store } from './store'
 import i18n from './i18n'
 
 Vue.use(firestorePlugin)
-
+Vue.use(require('vue-moment'));
 // firebase config file
 const fb = require('./fb.js')
 
