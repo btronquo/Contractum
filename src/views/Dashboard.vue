@@ -57,10 +57,11 @@
             <v-layout row wrap>
 
               <v-flex xs12 md-12 align-end d-flex class="transparent">
-                <span class="headline font-weight-bold text-uppercase text-xs-center">{{ event.name }} </span>
+                <span class="headline font-weight-bold text-uppercase text-xs-center">{{ event.title }} </span>
               </v-flex>
               <v-flex xs12 md-12 align-end d-flex class="pl-2 white--text blue-grey lighten-1 font-weight-medium">
-                {{ event.startAt.seconds | moment("dddd-MM @ HH:mm") }}
+                <!-- {{ event.startAt.seconds | moment("dddd-MM @ HH:mm") }} -->
+                {{ event.date }} @ {{ event.time }}
               </v-flex>
 
             </v-layout>
@@ -68,9 +69,7 @@
           </v-img>
           <v-card-text pa-5>
             <p>
-              Début: 
-            </p>
-            <p>
+              Description:
               {{ event.description }}
             </p>
             
@@ -111,8 +110,6 @@
             <v-btn color="primary" dark v-on="on">{{ $t('btnModalEventCreate' )}}</v-btn>
           </template>
 
-
-          
           <v-form
             ref="formEventAdd"
             v-model="valid"
@@ -156,11 +153,6 @@
                           required
                         ></v-autocomplete>
                       </v-flex>
-
-                      
-
-
-
 
                       <v-flex xs6 md-6>
                         <v-menu>
@@ -297,6 +289,16 @@ export default {
      
       if(this.$refs.formEventAdd.validate()) {
         console.log(this.eventForm)
+
+        const eventForm = {
+          ...this.eventForm,
+          authorId: this.$store.getters.user.id
+        }
+        db.collection('events').add(eventForm)
+        .then(() => {
+          this.dialog = false
+          this.eventForm = ''
+        })
       }
     }
   },
