@@ -133,6 +133,7 @@
         ]
         if (this.isAuthenticated) {
           menuItems = [
+            {icon: 'event', title: 'events', link: '/events'},
             {icon: 'dashboard', title: 'dashboard', link: '/dashboard'},
             {icon: 'person', title: 'profile', link: '/profile'},
             {icon: '', title: 'credits', link: '/about'},

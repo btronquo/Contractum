@@ -44,26 +44,22 @@
       <!-- event -->
       <v-flex xs12 sm6 offset-sm3>
 
-        <v-card class="my-3" hover data-aos="zoom-in" data-aos-easing="ease" 
+        <v-card class="my-3" hover data-aos="zoom-in" data-aos-easing="ease"
           v-for="(event) in events" :key="event.id"
         >
           <v-img
-          
           height="100px"
           src="https://i.imgur.com/8hCwS54.jpg"
         >
 
           <v-container fill-height fluid>
             <v-layout row wrap>
-
               <v-flex xs12 md-12 align-end d-flex class="transparent">
                 <span class="headline font-weight-bold text-uppercase text-xs-center">{{ event.title }} </span>
               </v-flex>
               <v-flex xs12 md-12 align-end d-flex class="pl-2 white--text blue-grey lighten-1 font-weight-medium">
-                <!-- {{ event.startAt.seconds | moment("dddd-MM @ HH:mm") }} -->
                 {{ event.date }} @ {{ event.time }}
               </v-flex>
-
             </v-layout>
           </v-container>
           </v-img>
@@ -72,7 +68,6 @@
               Description:
               {{ event.description }}
             </p>
-            
           </v-card-text>
           <v-card-actions>
             <v-chip color="indigo" text-color="white">
@@ -123,20 +118,20 @@
                 <v-container grid-list-md>
                   <v-layout wrap>
                       <v-flex xs6>
-                        <v-text-field 
+                        <v-text-field
                           :rules="rules.rulesFormTitle"
                           :counter="30"
                           v-model="eventForm.title"
-                          :label="$t('formLabelTitle')" 
+                          :label="$t('formLabelTitle')"
                           hint="La bataille de la barbe bleue.."
                           required
                         ></v-text-field>
                       </v-flex>
                       <v-flex xs3>
-                        <v-text-field 
+                        <v-text-field
                           v-model="eventForm.participantsMax"
                           :rules="rules.rulesFormParticipants"
-                          :label="$t('formLabelParticipants')" 
+                          :label="$t('formLabelParticipants')"
                           type="number"
                           hint="Nombre max de participants"
                           required
@@ -156,10 +151,10 @@
 
                       <v-flex xs6 md-6>
                         <v-menu>
-                          <v-text-field 
-                            slot="activator" 
-                            :label="$t('formLabelStartDate')" 
-                            prepend-icon="date_range" 
+                          <v-text-field
+                            slot="activator"
+                            :label="$t('formLabelStartDate')"
+                            prepend-icon="date_range"
                             :value="formattedDate"
                             :rules="rules.rulesFormStartAtDate"
                             readonly
@@ -217,11 +212,10 @@
                           rows="2"
                         >
                         </v-textarea>
-                      </v-flex> 
-                            
+                      </v-flex>
                   </v-layout>
                 </v-container>
-                <small>*Obligatoire</small>
+                <small>*{{ $t('ruleFieldRequired') }}</small>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -286,10 +280,8 @@ export default {
   },
   methods: {
     onSubmitEvent() {
-     
       if(this.$refs.formEventAdd.validate()) {
         console.log(this.eventForm)
-
         const eventForm = {
           ...this.eventForm,
           authorId: this.$store.getters.user.id
